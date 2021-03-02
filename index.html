@@ -1,0 +1,37 @@
+<!doctype html>
+<title>Basic Emulator</title><!-- not BASIC! -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="../build/libv86.js"></script>
+<script>
+"use strict";
+
+window.onload = function()
+{
+    var emulator = window.emulator = new V86Starter({
+        wasm_path: "../build/v86.wasm",
+        memory_size: 32 * 1024 * 1024,
+        vga_memory_size: 2 * 1024 * 1024,
+        screen_container: document.getElementById("screen_container"),
+        bios: {
+            url: "../bios/seabios.bin",
+        },
+        vga_bios: {
+            url: "../bios/vgabios.bin",
+        },
+        cdrom: {
+            url: "../images/linux.iso",
+        },
+        autostart: true,
+    });
+}
+</script>
+
+<!-- A minimal structure for the ScreenAdapter defined in browser/screen.js -->
+<div id="screen_container">
+    <div style="scroll-behavior: smooth; position: absolute; left: 0; right: 0%; width: 50%; top: 0; bottom: 0; z-index: -1; background-color: black; white-space: pre; font: 14px monospace; line-height: 18px; padding-left: 50%; display: flex; flex-wrap: nowrap;">
+    <canvas style="display: none;"></canvas>
+</div>
+
+<div><iframe src="https://the-programming-foundation.github.io/tutorials/os/unix/shell" frameborder="0" scrolling="yes" style="position: fixed; background-color: white; left: 0; width: 50%; height: 100%; top: 0; bottom: 0; z-index: 1;">
+    </iframe>  </div>
