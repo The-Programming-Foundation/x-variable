@@ -1,4 +1,6 @@
-v86 emulates an x86-compatible CPU and hardware. Machine code is translated to
+## 86driver
+
+86driver is based on v86 which emulates an x86-compatible CPU and hardware. Machine code is translated to
 WebAssembly modules at runtime in order to achieve decent performance. Here's a
 list of emulated hardware:
 
@@ -28,37 +30,6 @@ list of emulated hardware:
 - A virtio filesystem.
 - A SoundBlaster 16 sound card.
 
-Demos
--
-
-[Arch Linux](https://copy.sh/v86/?profile=archlinux) —
-[Damn Small Linux](https://copy.sh/v86/?profile=dsl) —
-[Buildroot Linux](https://copy.sh/v86/?profile=buildroot) —
-[FreeBSD](https://copy.sh/v86/?profile=freebsd) —
-[OpenBSD](https://copy.sh/v86/?profile=openbsd) —
-
-
-Compatibility
--
-
-Here's an overview of the operating systems supported in v86:
-
-- Linux works pretty well. Neither 64-bit nor PAE kernels are supported.
-  - Damn Small Linux (2.4 Kernel) works.
-  - All tested versions of TinyCore work.
-  - [BuildRoot](https://buildroot.uclibc.org) can be used to build a minimal
-    image. [humphd/browser-vm](https://github.com/humphd/browser-vm) has some
-    useful scripts for building one.
-  - Archlinux works. See [archlinux.md](docs/archlinux.md) for building an image.
-  - Debian works. An image can be built from a Dockerfile, see [tools/docker/debian/](tools/docker/debian/).
-  - Alpine Linux works.
-- FreeBSD works.
-- OpenBSD works with a specific boot configuration. At the `boot>` prompt type
-  `boot -c`, then at the `UKC>` prompt `disable mpbios` and `exit`.
-- NetBSD works only with a custom kernel, see [#350](https://github.com/copy/v86/issues/350).
-
-You can get some infos on the disk images here: https://github.com/copy/images.
-
 How to build, run and embed?
 -
 
@@ -82,20 +53,6 @@ See `tools/docker/test-image/Dockerfile` for a full setup on Debian.
   to serve the files using Python's http module.
 - If you only want to embed v86 in a webpage you can use libv86.js. For
   usage, check out the [examples](examples/).
-
-
-Testing
--
-
-The disk images for testing are not included in this repository. You can
-download them directly from the website using:
-
-`wget -P images/ https://k.copy.sh/{linux.iso,linux4.iso,buildroot-bzimage.bin,openbsd-floppy.img,kolibri.img,windows101.img,os8.img,freedos722.img}`
-
-Run all tests: `make jshint rustfmt kvm-unit-test nasmtests nasmtests-force-jit expect-tests jitpagingtests qemutests rust-test tests`
-
-See [tests/Readme.md](tests/Readme.md) for more infos.
-
 
 API examples
 -
@@ -130,7 +87,7 @@ See [starter.js](src/browser/starter.js).
 License
 -
 
-v86 is distributed under the terms of the Simplified BSD License, see
+86driver is re-distributed under the terms of the Simplified BSD License, see
 [LICENSE](LICENSE). The following third-party dependencies are included in the
 repository under their own licenses:
 
@@ -149,15 +106,3 @@ Credits
 - [Berkeley SoftFloat](http://www.jhauser.us/arithmetic/SoftFloat.html) is included to precisely emulate 80-bit floating point numbers
 - [The jor1k project](https://github.com/s-macke/jor1k) for 9p, filesystem and uart drivers
 - [WinWorld](https://winworldpc.com/) sources of some old operating systems
-
-
-More questions?
--
-
-Shoot me an email to `copy@copy.sh`. Please report bugs on GitHub.
-
-
-Author
--
-
-Fabian Hemmer (https://copy.sh/, `copy@copy.sh`)
