@@ -1,6 +1,6 @@
-## 86driver
+## x-variable
 
-86driver is based on v86 which emulates an x86-compatible CPU and hardware. Machine code is translated to
+x-variable is based on v86 which emulates an x86-compatible CPU and hardware. Machine code is translated to
 WebAssembly modules at runtime in order to achieve decent performance. Here's a
 list of emulated hardware:
 
@@ -87,7 +87,7 @@ See [starter.js](src/browser/starter.js).
 License
 -
 
-86driver is re-distributed under the terms of the Simplified BSD License, see
+x-variable is re-distributed under the terms of the Simplified BSD License, see
 [LICENSE](LICENSE). The following third-party dependencies are included in the
 repository under their own licenses:
 
