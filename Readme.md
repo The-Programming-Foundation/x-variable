@@ -87,7 +87,7 @@ See [starter.js](src/browser/starter.js).
 License
 -
 
-x-variable is re-distributed under the terms of the Simplified BSD License, see
+x-variable is distributed under the terms of the Simplified BSD License, see
 [LICENSE](LICENSE). The following third-party dependencies are included in the
 repository under their own licenses:
 
