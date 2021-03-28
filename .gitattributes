@@ -1,3 +1,2 @@
 lib/zstd/* linguist-vendored
 lib/softfloat/* linguist-vendored
-*.iso filter=lfs diff=lfs merge=lfs -text
