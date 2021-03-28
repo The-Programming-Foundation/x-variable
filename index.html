@@ -11,7 +11,7 @@ window.onload = function()
 {
     var emulator = window.emulator = new V86Starter({
         wasm_path: "../build/v86.wasm",
-        memory_size: 32 * 1024 * 1024,
+        memory_size: 128 * 4096 * 4096,
         vga_memory_size: 2 * 1024 * 1024,
         screen_container: document.getElementById("screen_container"),
         bios: {
@@ -21,7 +21,7 @@ window.onload = function()
             url: "../bios/vgabios.bin",
         },
         cdrom: {
-            url: "../images/linux.iso",
+            url: "../images/tc-tpf.iso",
         },
         autostart: true,
     });
@@ -37,7 +37,7 @@ window.onload = function()
 <body>
 <!-- A minimal structure for the ScreenAdapter defined in browser/screen.js -->
 <div id="screen_container">
-    <div id="terminal" style="width: 100%; scroll-behavior: smooth; position: absolute; left: 0; top: 0; bottom: 0; z-index: -1; background-color: black; white-space: pre; font: 18px monospace; line-height: 18px; padding: 10px;">
+    <div id="terminal" style="width: 100%; scroll-behavior: smooth; position: absolute; left: 0; top: 0; bottom: 0; z-index: -1; background-color: black; white-space: pre; font: 14px monospace; line-height: 22px; padding: 10px;">
     </div>
     <canvas style="display: none;"></canvas>
 </div>
