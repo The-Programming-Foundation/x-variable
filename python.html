@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+<title>x-variable</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="../build/libv86.js"></script>
+<script>
+"use strict";
+
+window.onload = function()
+{
+    var emulator = window.emulator = new V86Starter({
+        wasm_path: "../build/v86.wasm",
+        memory_size: 128 * 4096 * 4096,
+        vga_memory_size: 2 * 1024 * 1024,
+        screen_container: document.getElementById("screen_container"),
+        bios: {
+            url: "../bios/seabios.bin",
+        },
+        vga_bios: {
+            url: "../bios/vgabios.bin",
+        },
+        cdrom: {
+            url: "../images/tclinux-python.iso",
+        },
+        autostart: true,
+    });
+}
+</script>
+<style>
+    #terminal{
+       width: 100%;
+    }
+</style>
+</head>    
+
+<body>
+<!-- A minimal structure for the ScreenAdapter defined in browser/screen.js -->
+<div id="screen_container">
+    <div id="terminal" style="width: 100%; scroll-behavior: smooth; position: absolute; left: 0; top: 0; bottom: 0; z-index: -1; background-color: black; white-space: pre; font: 14px monospace; line-height: 22px; padding: 10px;">
+    </div>
+    <canvas style="display: none;"></canvas>
+</div>
+</body>
