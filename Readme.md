@@ -1,8 +1,6 @@
 ## x-variable
 
-x-variable is based on v86 which emulates an x86-compatible CPU and hardware. Machine code is translated to
-WebAssembly modules at runtime in order to achieve decent performance. Here's a
-list of emulated hardware:
+x-variable is based on v86 which emulates an x86-compatible CPU and hardware. Machine code is translated to WebAssembly modules at runtime in order to achieve decent performance. x-variables empowers the interactive experiences of The Programming Foundation's Learn. Here's a list of emulated hardware:
 
 - An x86-compatible CPU. The instruction set is around Pentium III level,
  including full SSE2 support. Some features are missing, in particular:
@@ -81,20 +79,7 @@ var emulator = new V86Starter({
 });
 ```
 
-See [starter.js](src/browser/starter.js).
-
-
-License
--
-
-x-variable is distributed under the terms of the Simplified BSD License, see
-[LICENSE](LICENSE). The following third-party dependencies are included in the
-repository under their own licenses:
-
-- [`lib/softfloat/softfloat.c`](lib/softfloat/softfloat.c)
-- [`lib/zstd/zstddeclib.c`](lib/zstd/zstddeclib.c)
-- [`tests/kvm-unit-tests/`](tests/kvm-unit-tests)
-- [`tests/qemutests/`](tests/qemutests)
+See [starter.js](src/browser/starter.js)
 
 
 Credits
@@ -105,4 +90,3 @@ Credits
 - [zstd](https://github.com/facebook/zstd) support is included for better compression of state images
 - [Berkeley SoftFloat](http://www.jhauser.us/arithmetic/SoftFloat.html) is included to precisely emulate 80-bit floating point numbers
 - [The jor1k project](https://github.com/s-macke/jor1k) for 9p, filesystem and uart drivers
-- [WinWorld](https://winworldpc.com/) sources of some old operating systems
