@@ -43,7 +43,7 @@
                     )
 
                 def banner(self):
-                    return f"Hello, Human! Let's build a smarter us! - The Programming Foundation\\nWelcome to the Pyodide terminal emulator 🐍\\n{super().banner()}"
+                    return f"{super().banner()}"
 
 
             js.window.pyconsole = PyConsole()

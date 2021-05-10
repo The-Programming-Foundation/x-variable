@@ -1,9 +1,12 @@
-## x-variable
+# x-variable
 
-x-variable is based on v86 which emulates an x86-compatible CPU and hardware. Machine code is translated to WebAssembly modules at runtime in order to achieve decent performance. x-variables empowers the interactive experiences of The Programming Foundation's Learn. Here's a list of emulated hardware:
+x-variable is a set of technologies that empower the interactive experiences for The Programming Foundation's Learn. We are using:
 
-- An x86-compatible CPU. The instruction set is around Pentium III level,
- including full SSE2 support. Some features are missing, in particular:
+## [v86](https://github.com/copy/v86)
+
+v86 emulates an x86-compatible CPU and hardware to emulate the Unix, C and other sections which demand x86 virtualization. Machine code is translated to WebAssembly modules at runtime in order to achieve decent performance. x-variables empowers the interactive experiences of The Programming Foundation's Learn. Here's a list of emulated hardware:
+
+- An x86-compatible CPU. The instruction set is around Pentium III level, including full SSE2 support. Some features are missing, in particular:
   - Task gates, far calls in protected mode
   - Some 16 bit protected mode features
   - Single stepping (trap flag, debug registers)
@@ -28,8 +31,7 @@ x-variable is based on v86 which emulates an x86-compatible CPU and hardware. Ma
 - A virtio filesystem.
 - A SoundBlaster 16 sound card.
 
-How to build, run and embed?
--
+**How to build, run and embed?**
 
 You need [important]:
 
@@ -52,8 +54,7 @@ See `tools/docker/test-image/Dockerfile` for a full setup on Debian.
 - If you only want to embed v86 in a webpage you can use libv86.js. For
   usage, check out the [examples](examples/).
 
-API examples
--
+**API examples**
 
 - [Basic](examples/basic.html)
 - [Programatically using the serial terminal](examples/serial.html)
@@ -82,11 +83,14 @@ var emulator = new V86Starter({
 See [starter.js](src/browser/starter.js)
 
 
-Credits
--
+**Credits**
 
 - CPU test cases via [QEMU](https://wiki.qemu.org/Main_Page)
 - More tests via [kvm-unit-tests](https://www.linux-kvm.org/page/KVM-unit-tests)
 - [zstd](https://github.com/facebook/zstd) support is included for better compression of state images
 - [Berkeley SoftFloat](http://www.jhauser.us/arithmetic/SoftFloat.html) is included to precisely emulate 80-bit floating point numbers
 - [The jor1k project](https://github.com/s-macke/jor1k) for 9p, filesystem and uart drivers
+
+## [Pyodide](https://github.com/pyodide/pyodide)
+
+Pyodide to run the Python shell in the Python section.
